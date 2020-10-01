@@ -363,7 +363,13 @@ function Board(height, width) {
 Board.prototype.initialise = function() {
   this.createGrid();
   this.addEventListeners();
-  this.toggleTutorialButtons();
+  /* this.toggleTutorialButtons(); */
+  let board = this;
+  board.toggleButtons();
+
+  document.getElementById("startButtonAStar").style.display = 'none';
+  document.getElementById("startButtonAStar3").style.display = 'none';
+  document.getElementById("startButtonBidirectional").style.display = 'none';
 };
 
 Board.prototype.createGrid = function() {
@@ -1008,7 +1014,7 @@ Board.prototype.changeStartNodeImages = function() {
 };
 
 let counter = 1;
-Board.prototype.toggleTutorialButtons = function() {
+/* Board.prototype.toggleTutorialButtons = function() {
 
   document.getElementById("skipButton").onclick = () => {
     document.getElementById("tutorial").style.display = "none";
@@ -1029,7 +1035,7 @@ Board.prototype.toggleTutorialButtons = function() {
     this.toggleTutorialButtons()
   }
 
-  let board = this;
+  
   function nextPreviousClick() {
     if (counter === 1) {
       document.getElementById("tutorial").innerHTML = `<h3>Welcome to Pathfinding Visualizer!</h3><h6>This short tutorial will walk you through all of the features of this application.</h6><p>If you want to dive right in, feel free to press the "Skip Tutorial" button below. Otherwise, press "Next"!</p><div id="tutorialCounter">1/9</div><img id="mainTutorialImage" src="public/styling/c_icon.png"><button id="nextButton" class="btn btn-default navbar-btn" type="button">Next</button><button id="previousButton" class="btn btn-default navbar-btn" type="button">Previous</button><button id="skipButton" class="btn btn-default navbar-btn" type="button">Skip Tutorial</button>`
@@ -1056,7 +1062,7 @@ Board.prototype.toggleTutorialButtons = function() {
     }
   }
 
-};
+}; */
 
 Board.prototype.toggleButtons = function() {
   document.getElementById("refreshButton").onclick = () => {
